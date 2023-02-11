@@ -1,0 +1,26 @@
+{
+  "name": "clothesapi",
+  "version": "1.0.0",
+  "description": "a sample API for accessing clothing inventory data stored in a json file",
+  "main": "sever.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "start": "node server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Will58727/ClothesAPI.git"
+  },
+  "author": "Will Powell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Will58727/ClothesAPI/issues"
+  },
+  "homepage": "https://github.com/Will58727/ClothesAPI#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "env": "^0.0.2",
+    "express": "^4.18.2",
+    "fetch": "^1.1.0"
+  }
+}

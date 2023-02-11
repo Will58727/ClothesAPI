@@ -1,0 +1,144 @@
+{
+    "items": [
+      {
+        "item_id": "475",
+        "name": "Dress",
+        "description": "A stunning dress perfect for any occasion.",
+        "price": 49.99,
+        "path_to_image": "/public/images/item_475",
+        "colors": [
+          {
+            "color_name": "Red",
+            "color_code": "#ff0000",
+            "sizes": {
+              "XS": 6,
+              "S": 4,
+              "M": 8,
+              "L": 9,
+              "XL": 2,
+              "2XL": 3,
+              "3XL": 1
+            }
+          },
+          {
+            "color_name": "Green",
+            "color_code": "#00ff00",
+            "sizes": {
+              "XS": 2,
+              "S": 5,
+              "M": 6,
+              "L": 0,
+              "XL": 9,
+              "2XL": 7,
+              "3XL": 3
+            }
+          }
+        ]
+      },
+      {
+        "item_id": "575",
+        "name": "Blouse",
+        "description": "A beautiful blouse to add to your wardrobe",
+        "price": 29.99,
+        "path_to_image": "/public/images/item_575",
+        "colors": [
+          {
+            "color_name": "Pink",
+            "color_code": "#ff69b4",
+            "sizes": {
+              "XS": 1,
+              "S": 0,
+              "M": 4,
+              "L": 8,
+              "XL": 6,
+              "2XL": 2,
+              "3XL": 9
+            }
+          },
+          {
+            "color_name": "Purple",
+            "color_code": "#9370db",
+            "sizes": {
+              "XS": 9,
+              "S": 7,
+              "M": 0,
+              "L": 6,
+              "XL": 8,
+              "2XL": 2,
+              "3XL": 3
+            }
+          }
+        ]
+      },
+      {
+        "item_id": "675",
+        "name": "Jacket",
+        "description": "A warm and stylish jacket to keep you comfortable",
+        "price": 79.99,
+        "path_to_image": "/public/images/item_675",
+        "colors": [
+          {
+            "color_name": "Black",
+            "color_code": "#000000",
+            "sizes": {
+              "XS": 4,
+              "S": 1,
+              "M": 3,
+              "L": 6,
+              "XL": 2,
+              "2XL": 0,
+              "3XL": 8
+            }
+          },
+          {
+            "color_name": "Brown",
+            "color_code": "#a52a2a",
+            "sizes": {
+              "XS": 3,
+              "S": 7,
+              "M": 9,
+              "L": 2,
+              "XL": 5,
+              "2XL": 8,
+              "3XL": 4
+            }
+          }
+        ]
+      },
+      {
+        "item_id": "775",
+        "name": "Pants",
+        "description": "Comfortable and stylish pants for any occasion",
+        "price": 39.99,
+        "path_to_image": "/public/images/item_775",
+        "colors": [
+          {
+            "color_name": "Gray",
+            "color_code": "#808080",
+            "sizes": {
+              "XS": 6,
+              "S": 2,
+              "M": 1,
+              "L": 7,
+              "XL": 5,
+              "2XL": 4,
+              "3XL": 8
+            }
+          },
+          {
+            "color_name": "Navy",
+            "color_code": "#000080",
+            "sizes": {
+              "XS": 0,
+              "S": 4,
+              "M": 3,
+              "L": 9,
+              "XL": 7,
+              "2XL": 1,
+              "3XL": 2
+            }
+          }
+        ]
+      }
+    ]
+  }
