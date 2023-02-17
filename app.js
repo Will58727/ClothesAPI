@@ -1,14 +1,36 @@
-let express = require('express');
-let json = require('./data/inventory.json');
+import {fileURLToPath, pathToFileURL} from 'url';
+import path from 'path';
+import dotenv from 'dotenv';
+import inventoryJSON from "./data/inventory.json" assert { type: 'json' };
+import * as handlers from "./handlers.js"
+import * as middleware from "./middleware.js"
+import express, {urlencoded} from 'express';
 
-require('dotenv').config();
 
 let app = express();
-let inventory = json.items;
+dotenv.config();
+const inventory = inventoryJSON.items;
+
+const directoryName = path.dirname(fileURLToPath(import.meta.url));
+
+
+
+
+
+
+
+
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use(loggerMiddleware);
+
+
+app.use(middleware.logMiddleware);
+
+
+
+
+
 
 
 app.use(express.static('public'));
@@ -24,10 +46,10 @@ app.use(express.static('public'));
 
 // });
 
-const pathToIndex = __dirname + "/views/index.html"
+const pathToIndex = directoryName + "/views/index.html"
 app.get('/', (req, res) => res.sendFile(pathToIndex));
 
-const pathToForm = __dirname + "/views/form.html"
+const pathToForm = directoryName + "/views/form.html"
 app.get('/form', (req, res) => res.sendFile(pathToForm));
 
 //GET request to /inventory and serve the entire inventory json to the client
@@ -94,43 +116,37 @@ app.get('/inventory/item/:name/description', (req, res) => {
 
 //GET request to get completely out of stock items
 app.get('/inventory/outOfStock', (req, res) => {
-    res.send(getOutOfStockItems());
+    res.send(handlers.getOutOfStockItems(inventory));
 });
 
 
-//function to get completely out of stock items
-function getOutOfStockItems() {
-    let responseString = ''
-    for (let i = 0; i < inventory.length; i++) {
-        let item = inventory[i];
-        let colors = item.colors;
-        for (let j = 0; j < colors.length; j++) {
-            let sizes = Object.values(colors[j].sizes);
-            if (sizes.reduce((x, y) => x + y) == 0) {
-                responseString += `the ${colors[j].color_name} ${item.name} is out of stock`
-            }
-        }
-    }
-    return(responseString);
-};
+//syntax for request chaining:
+//app.route(path).post(HANDLER).getHANDLER
 
 
 
-//post request to get the form from contact-signup.html
+
+const pathToSignUpConfirmation = directoryName + "/views/contact-confirmed.html"
+
+app.route('/contact-signup')
+    .post((req, res) => {
+        handlers.contactSignUpPostHandler(req, res);
+    })
+    .get((req, res) => {
+        handlers.contactSignUpGetHandler(req, res, pathToSignUpConfirmation);
+    });
+
+//POST request to get the form from contact-signup.html
 app.post('/contact-signup', (req, res) => {
-    let name = req.body.name;
-    let email = req.body.email;
-    console.log(req.body);
-    console.log(`${name}'s email is ${email}`);
-    res.send(`Thanks for signing up, ${name}!`);
-});
-
-//logger middleware
-app.get(function (req, res, next) {
-    console.log(`${req.method} request was made to path ${req.path} byIP: ${req.ip}`);
-    next();
-});
+handlers.contactSignUpPostHandler(req, res);
+})
 
 
-module.exports = app;
+
+
+
+
+
+
+export default app;
 
